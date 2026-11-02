@@ -83,6 +83,10 @@
       };
     };
 
+    # Neovim 0.11 stopped showing diagnostic messages at the end of the line by
+    # default, leaving only signs and underlines.
+    diagnostic.settings.virtual_text = true;
+
     # Completion menu: <C-n>/<C-p> select, <C-y> accepts (blink's default keymap).
     plugins.blink-cmp.enable = true;
 
