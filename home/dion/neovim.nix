@@ -21,6 +21,9 @@
       splitright = true;
       splitbelow = true;
       scrolloff = 8;
+      tabstop = 4;
+      # 0 makes indent commands like >> follow tabstop.
+      shiftwidth = 0;
     };
 
     # Shares the clipboard with Wayland through wl-clipboard.
