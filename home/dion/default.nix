@@ -76,6 +76,7 @@
         libxkbcommon
       ];
     })
+    python3
     _7zz
     tree
     unstable.claude-code
