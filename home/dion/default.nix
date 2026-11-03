@@ -12,7 +12,6 @@
     ./shell.nix
   ];
 
-  # Kitty switches between these when the system's light/dark setting changes.
   programs.kitty = {
     enable = true;
     autoThemeFiles = {
@@ -22,8 +21,8 @@
     };
   };
 
-  # Loads a project's flake dev shell when entering its directory. nix-direnv
-  # caches it so entering is fast and `nix-collect-garbage` keeps it.
+  # nix-direnv caches dev shells so entering is fast and `nix-collect-garbage`
+  # keeps them.
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
@@ -82,8 +81,7 @@
     unstable.claude-code
     # Discord refuses to start when outdated, so take it from unstable.
     unstable.discord
-    # Launcher, bar, and notifications (replaces fuzzel and mako). 26.05 only
-    # has 5.0.1, so take it from unstable.
+    # 26.05 only has 5.0.1, so take it from unstable.
     unstable.noctalia
     # Clipboard CLI (wl-copy/wl-paste) that terminal tools look for on Wayland.
     wl-clipboard
@@ -93,9 +91,8 @@
       runtimeInputs = [ git ];
       text = builtins.readFile ./scripts/clone-bare.sh;
     })
-    # Updates flake inputs, shows what changed, and switches after confirmation.
-    # nixos-rebuild and sudo come from the system, since sudo must be the setuid
-    # wrapper rather than a store copy.
+    # nixos-rebuild and sudo come from the system: sudo must be the setuid
+    # wrapper, not a store copy.
     (writeShellApplication {
       name = "nixos-upgrade";
       runtimeInputs = [

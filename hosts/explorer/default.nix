@@ -26,9 +26,8 @@
   };
   boot.resumeDevice = "/dev/mapper/vgroot-swap";
 
-  # Stage 1 is systemd-based since 26.05 and gives up on devices after 90s,
-  # which includes the time spent typing the LUKS passphrase. With LVM on top
-  # of LUKS the release notes recommend disabling the timeout for /.
+  # 26.05's systemd stage 1 gives up on / after 90s, including passphrase time;
+  # the release notes recommend this for LVM on LUKS.
   fileSystems."/".options = [ "x-systemd.device-timeout=infinity" ];
 
   # Load amdgpu in the initrd so plymouth and the LUKS prompt run at native

@@ -1,5 +1,4 @@
 // Only non-default settings are listed; niri fills in the rest.
-// Reloaded live on save. Check with `niri validate`.
 
 input {
     keyboard {
@@ -11,10 +10,8 @@ input {
     }
 }
 
-// The 4K TV, reached through an HDMI matrix: the EDID names the matrix, not
-// the TV. The ultrawide on the same matrix passes its own EDID through, so it
-// keeps scale 1. Matched by name rather than connector so it follows any port. The
-// double space is real: the EDID model is "MATRIX 4X2 " with a trailing space.
+// The 4K TV, whose HDMI matrix supplies the EDID. The double space is real:
+// the EDID model is "MATRIX 4X2 " with a trailing space.
 output "PNP(GSV) MATRIX 4X2  0x00000001" {
     scale 2
 }

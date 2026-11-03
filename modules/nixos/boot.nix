@@ -1,11 +1,9 @@
 # Boot loader, kernel, and boot splash.
-# Machine-specific boot settings (LUKS, resume, amdgpu initrd) live in hosts/<name>/.
 { pkgs, ... }: {
   boot = {
     loader = {
       systemd-boot = {
         enable = true;
-        # Use the firmware's highest resolution for the boot menu.
         consoleMode = "max";
         # /boot is only 500 MB, so cap the number of generations kept.
         configurationLimit = 5;
@@ -15,7 +13,6 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
-    # Graphical splash screen on boot.
     plymouth.enable = true;
 
     # Silent boot that hides kernel/udev/systemd output (Press Esc to show).

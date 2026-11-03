@@ -2,7 +2,6 @@
 { pkgs, ... }: {
   programs.nixvim = {
     enable = true;
-    # Sets EDITOR and VISUAL to nvim in the session environment.
     defaultEditor = true;
 
     # NixVim enables these by default, but only old remote plugins need them.
@@ -87,7 +86,6 @@
     # default, leaving only signs and underlines.
     diagnostic.settings.virtual_text = true;
 
-    # Completion menu: <C-n>/<C-p> select, <C-y> accepts (blink's default keymap).
     plugins.blink-cmp.enable = true;
 
     plugins.conform-nvim = {
@@ -129,12 +127,10 @@
       }
     ];
 
-    # Edit a directory like a buffer; :w applies the changes. Replaces netrw.
     plugins.oil.enable = true;
 
-    # Maps file names to schemas for jsonls and yamlls (package.json, GitHub
-    # workflows, ...). Only the catalog is bundled: the servers still download
-    # the schemas themselves, so validation needs network access.
+    # Only the schema catalog is bundled: jsonls and yamlls still download the
+    # schemas themselves, so validation needs network access.
     plugins.schemastore.enable = true;
 
     # Starts rust-analyzer itself and adds :RustLsp commands, so rust_analyzer
@@ -166,7 +162,6 @@
     # would put a second copy first on its PATH.
     dependencies.git.enable = false;
 
-    # Shows the keys that can follow a prefix such as <space> or g.
     plugins.which-key.enable = true;
 
     plugins.lualine.enable = true;
@@ -174,8 +169,7 @@
     # File icons for Telescope; enabling it automatically is deprecated.
     plugins.web-devicons.enable = true;
 
-    # Tools nvim shells out to; extraPackages puts them on nvim's PATH only, so
-    # they aren't installed system-wide. ripgrep and fd are for Telescope,
+    # On nvim's PATH only, not system-wide. ripgrep and fd are for Telescope,
     # nixfmt and shfmt for conform.
     extraPackages = with pkgs; [
       ripgrep

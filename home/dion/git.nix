@@ -1,3 +1,4 @@
+# Git identity and commit signing.
 { ... }: {
   programs.git = {
     enable = true;

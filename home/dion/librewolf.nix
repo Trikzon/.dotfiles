@@ -1,4 +1,4 @@
-# LibreWolf browser. Add preferences under `policies.Preferences` as you decide on them.
+# LibreWolf browser.
 { lib, ... }:
 let
   # Everything the address bar can suggest. Switched off one by one because
@@ -39,9 +39,8 @@ in
     enable = true;
 
     policies = {
-      # Set through policy rather than `settings`: Home Manager writes
-      # `settings` to ~/.librewolf, which this LibreWolf doesn't read (it uses
-      # ~/.config/librewolf). Policies are baked into the package instead.
+      # Not `settings`: Home Manager writes those to ~/.librewolf, but this
+      # LibreWolf reads ~/.config/librewolf. Policies are baked into the package.
       Preferences = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = defaultPref true;
 
@@ -89,10 +88,8 @@ in
     };
   };
 
-  # LibreWolf's resistFingerprinting makes every site see a light theme, and it
-  # ignores per-target overrides, so swap it for fingerprintingProtection with
-  # every target except the color scheme. The Preferences policy can't set
-  # resistFingerprinting, so use LibreWolf's own overrides file.
+  # resistFingerprinting makes every site see a light theme and ignores
+  # per-target overrides. The Preferences policy can't set it, hence this file.
   xdg.configFile."librewolf/librewolf/librewolf.overrides.cfg".text = ''
     defaultPref("privacy.resistFingerprinting", false);
     defaultPref("privacy.fingerprintingProtection", true);

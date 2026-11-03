@@ -17,7 +17,6 @@
     '';
   };
 
-  # Kitty's shell integration is added to .zshrc automatically.
   programs.starship = {
     enable = true;
     settings = {

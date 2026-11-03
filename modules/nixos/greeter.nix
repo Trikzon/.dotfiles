@@ -6,9 +6,8 @@ let
   greeter = pkgs.unstable.noctalia-greeter;
 in
 {
-  # nixpkgs has a module for this (services.displayManager.noctalia-greeter),
-  # but only in unstable, and it needs options 26.05 doesn't have. This is the
-  # part of it that matters.
+  # The part that matters of unstable's services.displayManager.noctalia-greeter,
+  # which needs options 26.05 doesn't have.
   services.greetd = {
     enable = true;
     settings.default_session.command = lib.getExe' greeter "noctalia-greeter-session";
