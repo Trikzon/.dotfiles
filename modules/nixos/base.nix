@@ -6,9 +6,19 @@
   # Tools worth having even as root or on a broken system.
   environment.systemPackages = with pkgs; [
     curl
+    fd
+    file
     git
+    htop
+    jq
+    lsof
+    pciutils
+    ripgrep
+    unzip
+    usbutils
     vim
     wget
+    zip
   ];
 
   programs.gnupg.agent.enable = true;
