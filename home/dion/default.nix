@@ -31,6 +31,8 @@
     config.whitelist.prefix = [ "/home/dion/Projects/dashboard" ];
   };
 
+  programs.fastfetch.enable = true;
+
   programs.gh.enable = true;
 
   services.syncthing = {
