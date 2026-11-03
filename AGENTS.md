@@ -93,6 +93,9 @@ project gets a flake dev shell, loaded by direnv (`programs.direnv` with
 
 ## Comments
 
+- Default to no comment. Most lines need none; add one only when a reader
+  would otherwise ask "why is this here?" or "why this way?"
+- Nearby comments explain their own lines; they are not a style to copy.
 - Comment *why*, not *what*: option names already say what they do.
 - Keep comments brief: one line where possible, two at most. Leave usage
   details to the plugin's docs.
