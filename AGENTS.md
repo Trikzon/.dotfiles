@@ -94,6 +94,8 @@ project gets a flake dev shell, loaded by direnv (`programs.direnv` with
 ## Comments
 
 - Comment *why*, not *what*: option names already say what they do.
+- Keep comments brief: one line where possible, two at most. Leave usage
+  details to the plugin's docs.
 - Worth commenting: workarounds, non-obvious defaults, things done by hand
   outside Nix (e.g. the ACLs on `/mnt/storage`).
 - Don't leave template comments, commented-out code, or TODOs without a reason.
