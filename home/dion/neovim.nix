@@ -120,7 +120,17 @@
         action.__raw = "function() require('conform').format({ lsp_format = 'fallback' }) end";
         options.desc = "Format buffer";
       }
+      # Oil's suggested binding; replaces a rarely used motion.
+      {
+        mode = "n";
+        key = "-";
+        action = "<cmd>Oil<cr>";
+        options.desc = "Open parent directory";
+      }
     ];
+
+    # Edit a directory like a buffer; :w applies the changes. Replaces netrw.
+    plugins.oil.enable = true;
 
     # Maps file names to schemas for jsonls and yamlls (package.json, GitHub
     # workflows, ...). Only the catalog is bundled: the servers still download
