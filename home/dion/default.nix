@@ -57,6 +57,7 @@
     # Base theme for Noctalia's GTK templates: Noctalia recolours it and
     # switches between its light and dark variants with the system theme.
     adw-gtk3
+    chromium
     dashboard
     libreoffice
     mpv
@@ -128,7 +129,16 @@
         "application/pdf"
         "x-scheme-handler/http"
         "x-scheme-handler/https"
+        "text/xml"
+        "application/xml"
+        "application/rss+xml"
       ] (_: "librewolf.desktop")
+      // lib.genAttrs [
+        "image/png"
+        "image/jpeg"
+        "image/gif"
+        "image/webp"
+      ] (_: "dev.noctalia.Noctalia.Annotator.desktop")
       // {
         # Claude Code registered this itself; Home Manager now owns the file.
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
