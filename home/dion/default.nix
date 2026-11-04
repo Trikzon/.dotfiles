@@ -107,8 +107,12 @@
   ];
 
   # Nix can't apply Discord's self-updates, so stop it from asking for them.
-  xdg.configFile."discord/settings.json".text = builtins.toJSON {
-    SKIP_HOST_UPDATE = true;
+  # Discord replaces this link with its own copy, so force relinks it on switch.
+  xdg.configFile."discord/settings.json" = {
+    text = builtins.toJSON {
+      SKIP_HOST_UPDATE = true;
+    };
+    force = true;
   };
 
   # Without these, xdg-open picks whichever installed app lists the type first.
