@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/base.nix
@@ -33,6 +33,9 @@
   # Load amdgpu in the initrd so plymouth and the LUKS prompt run at native
   # resolution instead of the firmware framebuffer.
   hardware.amdgpu.initrd.enable = true;
+
+  # Lets the Keychron Launcher (WebHID) remap the K17 Max's firmware keymap.
+  services.udev.packages = [ pkgs.keychron-udev-rules ];
 
   # Shared data drive. Everyone in the storage group can read/write. The
   # permissions live on the filesystem itself and were set once by hand:
