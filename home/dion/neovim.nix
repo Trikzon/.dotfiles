@@ -92,7 +92,8 @@
       enable = true;
       settings = {
         # nixfmt matches `nix fmt`. ruff is already on PATH as the LSP's
-        # fallback, so a project's own ruff takes precedence.
+        # fallback, so a project's own ruff takes precedence. prettier only runs
+        # from a project's node_modules; elsewhere the language server formats.
         formatters_by_ft = {
           nix = [ "nixfmt" ];
           sh = [ "shfmt" ];
@@ -100,12 +101,17 @@
             "ruff_format"
             "ruff_organize_imports"
           ];
+          javascript = [ "prettier" ];
+          javascriptreact = [ "prettier" ];
+          typescript = [ "prettier" ];
+          typescriptreact = [ "prettier" ];
+          css = [ "prettier" ];
+          json = [ "prettier" ];
         };
-        # "never" restricts saving to the formatters above, so language servers
-        # don't reformat other projects' files in a style they don't use.
+        # Without a formatter above, saving formats through the language server.
         format_on_save = {
           timeout_ms = 500;
-          lsp_format = "never";
+          lsp_format = "fallback";
         };
       };
     };
