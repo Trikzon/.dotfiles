@@ -2,6 +2,10 @@
 
 input {
     keyboard {
+        xkb {
+            layout "us"
+            variant "mac"
+        }
         numlock
     }
     touchpad {
