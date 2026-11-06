@@ -79,6 +79,7 @@
       ];
     })
     python3
+    satdump
     _7zz
     tree
     unstable.claude-code
