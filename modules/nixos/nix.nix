@@ -16,6 +16,9 @@
         "steam"
         "steam-unwrapped"
         "steam-run"
+        "unityhub"
+        # Unity Hub bundles these fonts for the editor tools.
+        "corefonts"
       ];
 
     overlays = [

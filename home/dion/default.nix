@@ -84,6 +84,7 @@
     # SatDump's Open/Save buttons run zenity from PATH; the package doesn't bring it.
     zenity
     tree
+    unityhub
     unstable.claude-code
     # Discord refuses to start when outdated, so take it from unstable.
     unstable.discord
