@@ -81,6 +81,8 @@
     python3
     satdump
     _7zz
+    # SatDump's Open/Save buttons run zenity from PATH; the package doesn't bring it.
+    zenity
     tree
     unstable.claude-code
     # Discord refuses to start when outdated, so take it from unstable.
