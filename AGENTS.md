@@ -27,9 +27,11 @@ New files must be `git add`ed before evaluating; flakes only see tracked files.
 
 ## Project dev environments
 
-Per-project tooling (Node, pnpm, ...) is not installed system-wide. Each
-project gets a flake dev shell, loaded by direnv (`programs.direnv` with
-`nix-direnv` in `home/dion/default.nix`).
+Default toolchains (Node, gcc, make, Go, Rust) are installed system-wide by
+`modules/nixos/dev-tools.nix`. Each project still gets a flake dev shell,
+loaded by direnv (`programs.direnv` with `nix-direnv` in
+`home/dion/default.nix`), which pins project-specific versions (pnpm, Prisma,
+...) and takes precedence on PATH inside the project.
 
 - Projects are cloned bare: `<project>/.bare`, a `.git` file containing
   `gitdir: ./.bare`, and one worktree directory per branch beside it.

@@ -59,11 +59,16 @@
     adw-gtk3
     chromium
     dashboard
+    dnsutils
+    ffmpeg
     libreoffice
     mpv
     # Plain `nemo` ignores extensions. This wrapper loads Linux Mint's default
     # set, including nemo-fileroller for the Compress/Extract menu entries.
     nemo-with-extensions
+    openssl
+    pandoc
+    poppler-utils
     # Java's AWT needs these, and the wrapper doesn't include them. Without
     # them, GTNH's FalsePatternLib crashes when it opens its download window.
     (prismlauncher.override {
@@ -78,13 +83,20 @@
         libxkbcommon
       ];
     })
-    python3
+    (python3.withPackages (ps: [
+      ps.pypdf
+      ps.openpyxl
+    ]))
+    qpdf
     satdump
+    shellcheck
+    sqlite
     _7zz
     # SatDump's Open/Save buttons run zenity from PATH; the package doesn't bring it.
     zenity
     tree
     unityhub
+    uv
     unstable.claude-code
     # Discord refuses to start when outdated, so take it from unstable.
     unstable.discord
@@ -92,6 +104,7 @@
     unstable.noctalia
     # Clipboard CLI (wl-copy/wl-paste) that terminal tools look for on Wayland.
     wl-clipboard
+    yq-go
     # Sets up the bare-clone-plus-worktrees layout described in AGENTS.md.
     (writeShellApplication {
       name = "clone-bare";

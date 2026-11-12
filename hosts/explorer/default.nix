@@ -4,6 +4,7 @@
     ../../modules/nixos/base.nix
     ../../modules/nixos/boot.nix
     ../../modules/nixos/desktop.nix
+    ../../modules/nixos/dev-tools.nix
     ../../modules/nixos/docker.nix
     ../../modules/nixos/greeter.nix
     ../../modules/nixos/hd60s.nix
