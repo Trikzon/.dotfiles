@@ -15,6 +15,7 @@
     ../../modules/nixos/steam.nix
     ../../modules/nixos/syncthing.nix
     ../../users/dion.nix
+    ../../users/work.nix
   ];
 
   networking.hostName = "explorer";
@@ -50,6 +51,7 @@
   };
   users.groups.storage = { };
   users.users.dion.extraGroups = [ "storage" ];
+  users.users.work.extraGroups = [ "storage" ];
 
   # First NixOS release installed on this machine. Never change it; it is not
   # the version you are running. See `man configuration.nix`.

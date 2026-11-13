@@ -174,4 +174,5 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-include "noctalia.kdl"
+// Optional because a new user's Noctalia hasn't written it yet; a missing include is an error.
+include optional=true "noctalia.kdl"
