@@ -1,5 +1,10 @@
 # Login screen: Noctalia Greeter on greetd.
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # Same release as the unstable noctalia shell, so `noctalia msg greeter-sync`
   # and the greeter agree on the sync format.
@@ -12,6 +17,39 @@ in
     enable = true;
     settings.default_session.command = lib.getExe' greeter "noctalia-greeter-session";
   };
+
+  # A second greetd on tty2, so another user can log in while tty1 is in use.
+  # The NixOS module only runs one, fixed to tty1; this mirrors its unit.
+  # switch = false: greetd waits for Ctrl+Alt+F2 instead of taking the screen at boot.
+  systemd.services.greetd-tty2 = {
+    wantedBy = [ "graphical.target" ];
+    wants = [ "systemd-user-sessions.service" ];
+    after = [
+      "systemd-user-sessions.service"
+      "getty@tty2.service"
+    ];
+    conflicts = [ "getty@tty2.service" ];
+    # Restarting would end the session running on tty2.
+    restartIfChanged = false;
+    serviceConfig = {
+      ExecStart = "${lib.getExe config.services.greetd.package} --config ${
+        (pkgs.formats.toml { }).generate "greetd-tty2.toml" (
+          lib.recursiveUpdate config.services.greetd.settings {
+            terminal = {
+              vt = 2;
+              switch = false;
+            };
+          }
+        )
+      }";
+      Type = "idle";
+      IgnoreSIGPIPE = false;
+      SendSIGHUP = true;
+      TimeoutStopSec = "30s";
+      KeyringMode = "shared";
+    };
+  };
+  systemd.services."autovt@tty2".enable = false;
 
   # State dir for greeter.toml and the synced appearance. Owned by the user
   # greetd runs the greeter as (`greeter` by default).
