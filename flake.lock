@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1793899650,
-        "narHash": "sha256-lx6KIsFzOlhoXqQvx41jdLz0lFQw0atC4UkNSVBLcxA=",
+        "lastModified": 1794538940,
+        "narHash": "sha256-A20MuwCVsR7mBTQgFfXMLFB3xT6DQXkiHVOyMzablnU=",
         "ref": "main",
-        "rev": "5107920371db1013a79a66606ac013f25a62eed7",
-        "revCount": 1112,
+        "rev": "c6aa8136b3a0ccce87857a2447f62cb3360b3c48",
+        "revCount": 1131,
         "type": "git",
         "url": "ssh://git@github.com/Trikzon/dashboard"
       },
