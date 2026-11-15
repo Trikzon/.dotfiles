@@ -14,6 +14,7 @@
     # switches between its light and dark variants with the system theme.
     adw-gtk3
     dashboard
+    gnome-text-editor
     libreoffice
     mpv
     # Plain `nemo` ignores extensions. This wrapper loads Linux Mint's default
@@ -66,6 +67,7 @@
         # Claude Code registered this itself; Home Manager now owns the file.
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
         "inode/directory" = "nemo.desktop";
+        "text/plain" = "org.gnome.TextEditor.desktop";
       };
   };
 
