@@ -63,11 +63,18 @@
         "image/gif"
         "image/webp"
       ] (_: "dev.noctalia.Noctalia.Annotator.desktop")
+      # kitty-open.desktop claims all of text/*, so it wins these otherwise.
+      // lib.genAttrs [
+        "text/plain"
+        "text/markdown"
+        "text/x-python"
+        "application/json"
+        "application/x-shellscript"
+      ] (_: "org.gnome.TextEditor.desktop")
       // {
         # Claude Code registered this itself; Home Manager now owns the file.
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
         "inode/directory" = "nemo.desktop";
-        "text/plain" = "org.gnome.TextEditor.desktop";
       };
   };
 
