@@ -12,6 +12,7 @@
     ../shared/librewolf.nix
     ../shared/shell.nix
     ./neovim.nix
+    ./retroarch.nix
   ];
 
   # Pre-approves every .envrc under the project, so new worktrees don't each
