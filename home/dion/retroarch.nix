@@ -92,6 +92,8 @@ in
         video_filter_dir = "${emulation}/Filters/video";
         savefile_directory = "${emulation}/Saves";
         video_shader_dir = "${emulation}/Shaders";
+        # The gl driver only loads GLSL; the CyberLab presets are slang.
+        video_driver = "vulkan";
         # Core options, per-game overrides and remaps, kept in the Syncthing folder.
         rgui_config_directory = "${emulation}/Config";
         input_remapping_directory = "${emulation}/Config/remaps";
