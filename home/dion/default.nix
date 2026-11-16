@@ -60,6 +60,7 @@
         libxkbcommon
       ];
     })
+    proton-vpn
     (python3.withPackages (ps: [
       ps.pypdf
       ps.openpyxl

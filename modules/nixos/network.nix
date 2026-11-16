@@ -8,4 +8,6 @@
 
   # On by default; kept explicit. Services can open their own ports when needed.
   networking.firewall.enable = true;
+  # Strict rpfilter drops replies from the VPN server once all traffic routes through the tunnel.
+  networking.firewall.checkReversePath = "loose";
 }
