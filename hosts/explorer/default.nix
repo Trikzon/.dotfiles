@@ -9,6 +9,7 @@
     ../../modules/nixos/greeter.nix
     ../../modules/nixos/hd60s.nix
     ../../modules/nixos/home-manager.nix
+    ../../modules/nixos/libvirt.nix
     ../../modules/nixos/network.nix
     ../../modules/nixos/nix-ld.nix
     ../../modules/nixos/nix.nix
