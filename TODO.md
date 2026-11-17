@@ -10,7 +10,8 @@
   - If 26.11 has FreeChaF and PokeMini, take RetroArch from stable instead of unstable (`home/dion/retroarch.nix`)
 - [ ] Import the signing key into work's GPG keyring; until then, commits made as work fail to sign
   - As dion (work can't read /home/dion): `gpg --export-secret-keys F2EDF21F8BED59D5 | sudo -u work gpg --import`
-- [ ] Watch for another Wi-Fi stall now that power saving is off (`modules/nixos/network.nix`)
-  - If it recurs: check `ip -br addr show wlp6s0` and `ping 192.168.50.1` before rebooting, then read NetworkManager's INFO logs
-  - Still stalling with power saving off: try `mt7921e` `disable_aspm=1`
+- [ ] Watch for another MT7922 firmware hang now that ASPM is off (`hosts/explorer/default.nix`)
+  - Power saving off alone didn't fix it; the hang recurred on 2026-11-16 at 20:46
+  - If it recurs: try `sudo modprobe -r mt7921e && sudo modprobe mt7921e` before rebooting, then read NetworkManager's INFO logs
+  - If ASPM fixes it, test turning `wifi.powersave` back on (`modules/nixos/network.nix`)
   - Once settled, remove `networking.networkmanager.logLevel = "INFO"`

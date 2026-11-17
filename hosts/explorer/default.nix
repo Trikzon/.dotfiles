@@ -36,6 +36,9 @@
   # resolution instead of the firmware framebuffer.
   hardware.amdgpu.initrd.enable = true;
 
+  # The MT7922's firmware hangs (no traffic, scans never finish) until a reboot.
+  boot.extraModprobeConfig = "options mt7921e disable_aspm=1";
+
   # Lets the Keychron Launcher (WebHID) remap the K17 Max's firmware keymap.
   services.udev.packages = [ pkgs.keychron-udev-rules ];
 

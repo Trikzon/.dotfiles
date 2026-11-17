@@ -1,7 +1,7 @@
 # Networking, firewall, and remote access.
 { ... }: {
   networking.networkmanager.enable = true;
-  # MT7922 can stall traffic while staying associated when power saving is on.
+  # Tried for MT7922 firmware hangs; didn't fix them alone. Keep until ASPM is ruled in or out.
   networking.networkmanager.wifi.powersave = false;
   # Default WARN hides DHCP and connectivity changes; keep until the Wi-Fi stall is diagnosed.
   networking.networkmanager.logLevel = "INFO";
