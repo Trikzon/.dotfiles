@@ -20,6 +20,11 @@ output "PNP(GSV) MATRIX 4X2  0x00000001" {
     scale 2
 }
 
+// The same TV when it reports its own EDID.
+output "Samsung Electric Company SAMSUNG 0x01000E00" {
+    scale 2
+}
+
 // Ask windows to drop their client-side titlebars; niri draws the border.
 prefer-no-csd
 
