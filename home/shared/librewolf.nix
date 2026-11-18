@@ -85,6 +85,25 @@ in
         install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
         default_area = "navbar";
       };
+
+      ExtensionSettings."{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
+        installation_mode = "normal_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi";
+        default_area = "menupanel";
+      };
+
+      ExtensionSettings."sponsorBlocker@ajay.app" = {
+        installation_mode = "normal_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi";
+        default_area = "menupanel";
+      };
+
+      # Unhook; its add-on ID is the author's email address.
+      ExtensionSettings."myallychou@gmail.com" = {
+        installation_mode = "normal_installed";
+        install_url = "https://addons.mozilla.org/firefox/downloads/latest/youtube-recommended-videos/latest.xpi";
+        default_area = "menupanel";
+      };
     };
   };
 
