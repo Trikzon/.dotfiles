@@ -20,8 +20,30 @@
     # Plain `nemo` ignores extensions. This wrapper loads Linux Mint's default
     # set, including nemo-fileroller for the Compress/Extract menu entries.
     nemo-with-extensions
-    slurp
-    wl-screenrec
+    # Bound to Mod+Shift+S in niri: the first press records an area, the second stops.
+    (writeShellApplication {
+      name = "record-area";
+      runtimeInputs = [
+        procps
+        slurp
+        wl-screenrec
+      ];
+      text = ''
+        # SIGINT lets wl-screenrec finish writing the MP4.
+        pkill -INT -x wl-screenrec && exit
+        read -r x y w h < <(slurp -d -f '%x %y %w %h')
+        sw=()
+        # The GPU encoder crashes on frames under ~120px; x264 handles them but needs even sizes.
+        if ((w < 128 || h < 128)); then
+          sw=(--no-hw)
+          w=$((w / 2 * 2))
+          h=$((h / 2 * 2))
+        fi
+        mkdir -p ~/Videos
+        exec wl-screenrec --low-power=off "''${sw[@]}" -g "$x,$y ''${w}x$h" \
+          -f ~/Videos/clip-"$(date +%F_%H-%M-%S)".mp4
+      '';
+    })
     # Discord refuses to start when outdated, so take it from unstable.
     unstable.discord
     # 26.05 only has 5.0.1, so take it from unstable.

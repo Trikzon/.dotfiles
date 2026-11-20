@@ -69,8 +69,7 @@ binds {
     Mod+E hotkey-overlay-title="Open Files: Nemo" { spawn "nemo"; }
     Mod+Space hotkey-overlay-title="Search: Noctalia" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+S hotkey-overlay-title="Screenshot: select area" { screenshot; }
-    // Press again to stop; SIGINT lets wl-screenrec finish writing the MP4.
-    Mod+Shift+S hotkey-overlay-title="Record area (again to stop)" { spawn-sh r#"pkill -INT -x wl-screenrec || { g=$(slurp) && mkdir -p ~/Videos && wl-screenrec --low-power=off -g "$g" -f ~/Videos/clip-$(date +%F_%H-%M-%S).mp4; }"#; }
+    Mod+Shift+S hotkey-overlay-title="Record area (again to stop)" { spawn "record-area"; }
     Mod+Shift+Comma hotkey-overlay-title="Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
