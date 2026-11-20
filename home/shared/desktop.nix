@@ -31,7 +31,8 @@
       text = ''
         # SIGINT lets wl-screenrec finish writing the MP4.
         pkill -INT -x wl-screenrec && exit
-        read -r x y w h < <(slurp -d -f '%x %y %w %h')
+        # Without the trailing newline, read fails and errexit stops the script.
+        read -r x y w h < <(slurp -d -f $'%x %y %w %h\n')
         sw=()
         # The GPU encoder crashes on frames under ~120px; x264 handles them but needs even sizes.
         if ((w < 128 || h < 128)); then
