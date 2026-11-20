@@ -20,6 +20,8 @@
     # Plain `nemo` ignores extensions. This wrapper loads Linux Mint's default
     # set, including nemo-fileroller for the Compress/Extract menu entries.
     nemo-with-extensions
+    slurp
+    wl-screenrec
     # Discord refuses to start when outdated, so take it from unstable.
     unstable.discord
     # 26.05 only has 5.0.1, so take it from unstable.
