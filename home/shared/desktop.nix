@@ -14,6 +14,8 @@
     # switches between its light and dark variants with the system theme.
     adw-gtk3
     dashboard
+    # Noctalia runs this to set external monitors' brightness over DDC/CI.
+    ddcutil
     gnome-text-editor
     libreoffice
     mpv

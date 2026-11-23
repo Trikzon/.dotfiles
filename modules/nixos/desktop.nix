@@ -19,6 +19,10 @@
   hardware.bluetooth.enable = true;
   services.power-profiles-daemon.enable = true;
 
+  # Loads i2c-dev and lets the logged-in user open /dev/i2c-*, which ddcutil
+  # needs to talk DDC/CI to external monitors.
+  hardware.i2c.enable = true;
+
   # Nemo needs this for the trash and for mounting USB drives and network shares.
   services.gvfs.enable = true;
 
