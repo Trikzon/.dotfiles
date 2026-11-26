@@ -9,6 +9,13 @@
     };
   };
 
+  # Not ~/Music: that is a symlink to this path, and scanners may skip a symlinked root.
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/mnt/storage/Music";
+  };
+  programs.rmpc.enable = true;
+
   home.packages = with pkgs; [
     # Base theme for Noctalia's GTK templates: Noctalia recolours it and
     # switches between its light and dark variants with the system theme.
