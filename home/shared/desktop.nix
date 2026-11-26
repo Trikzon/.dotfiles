@@ -13,6 +13,13 @@
   services.mpd = {
     enable = true;
     musicDirectory = "/mnt/storage/Music";
+    # Without an output, MPD guesses ALSA, which has no "PCM" mixer here, so volume fails.
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "PipeWire"
+      }
+    '';
   };
   programs.rmpc.enable = true;
 
