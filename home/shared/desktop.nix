@@ -21,7 +21,14 @@
       }
     '';
   };
-  programs.rmpc.enable = true;
+  programs.rmpc = {
+    enable = true;
+    config = ''
+      (
+        address: "127.0.0.1:6600",
+      )
+    '';
+  };
 
   home.packages = with pkgs; [
     # Base theme for Noctalia's GTK templates: Noctalia recolours it and
