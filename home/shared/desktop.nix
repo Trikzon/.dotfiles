@@ -13,6 +13,7 @@
   services.mpd = {
     enable = true;
     musicDirectory = "/mnt/storage/Music";
+    playlistDirectory = "/mnt/storage/Music/Playlists";
     # Without an output, MPD guesses ALSA, which has no "PCM" mixer here, so volume fails.
     extraConfig = ''
       audio_output {
