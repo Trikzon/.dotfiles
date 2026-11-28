@@ -39,6 +39,7 @@
     # Noctalia runs this to set external monitors' brightness over DDC/CI.
     ddcutil
     gnome-text-editor
+    kid3
     libreoffice
     mpv
     # Plain `nemo` ignores extensions. This wrapper loads Linux Mint's default
